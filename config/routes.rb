@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get 'welcome/home', to: 'welcome#home'
   get 'welcome/contacts', to: 'welcome#contacts'
 
+  get 'signup', to: 'users#new'
+
   resources :recipes
   resources :responses
   resources :discussions
   resources :products
   resources :posts
-  resources :users
+  resources :users, except: [:new]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
