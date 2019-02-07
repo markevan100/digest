@@ -1,32 +1,57 @@
-<%= form_with(model: recipe, local: true) do |form| %>
-  <% if recipe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for(@recipe, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+      <% if @recipe.errors.any? %>
+        <div class="panel panel-danger col-md-offset-1">
+          <div class="panel-heading">
+            <h2 class="panel-title">
+              <%= pluralize(@recipe.errors.count, "error") %>
+              prohibited this recipe from being saved:
+            </h2>
 
-      <ul>
-      <% recipe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <div class="panel-body">
+              <ul>
+                <% @recipe.errors.full_messages.each do |msg| %>
+                <li>
+                  <%= msg %>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <div class="form-group">
+        <div class="control-label col-md-1">
+          <%= f.label :Name %>
+        </div>
+        <div class="col-md-11">
+          <%= f.text_field :title, class: 'form-control', placeholder: "Name of recipe", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-1">
+          <%= f.label :instructions %>
+        </div>
+        <div class="col-md-11">
+          <%= f.text_area :article, rows: 10, class: 'form-control', placeholder: 'Instructions for this recipe' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-1">
+          <%= f.label :ingredients %>
+        </div>
+        <div class="col-md-11">
+          <%= f.text_area :ingredients, rows: 10, class: 'form-control', placeholder: 'Ingredients in this recipe' %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+      <div class="form-group">
+        <div class="col-md-offset-1 col-md-11">
+          <%= f.submit class: 'btn btn-primary btn-lg pull-right' %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= form.label :ingredients %>
-    <%= form.text_area :ingredients %>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :article %>
-    <%= form.text_area :article %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
