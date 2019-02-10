@@ -1,5 +1,15 @@
 <h2 align="center"> Title: <%= @discussion.title %></h2>
 <div align="center">
+  <ul class="listing">
+    <li>Created by:</li>
+    <div class="row">
+      <li><%= link_to gravatar_for(@discussion.user), user_path(@discussion.user)%></li>
+      <li class="discussion-title">
+        <%= link_to @discussion.user.username, user_path(@discussion.user) %>
+      </li>
+    </div>
+  </div>
+</ul>
   <h4 class="center"><strong>Question:</strong></h4>
     <hr>
     <%= simple_format(@discussion.question) %>
