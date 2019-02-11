@@ -75,7 +75,7 @@ class DiscussionsController < ApplicationController
     end
 
     def require_same_user
-      if current_user != @discussion.user
+      if current_user != @discussion.user and !current_user.admin?
         flash[:danger] = "You can only edit or delete your own articles"
         redirect_to root_path
       end
