@@ -7,6 +7,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.2'
 
 gem 'bcrypt', '~> 3.1.7'
+
 # Use sqlite3 as the database for Active Record
 
 gem 'jquery-rails'
