@@ -14,9 +14,11 @@
     <hr>
     <%= simple_format(@discussion.question) %>
     <!-- <p id="notice"><%= notice %></p> -->
-    <div class="discussion-actions">
-      <%= link_to "Edit this topic", edit_discussion_path(@discussion), class: "btn btn-xs btn-success", id: "butt" %>
-      <%= link_to "Delete this topic", discussion_path(@discussion), method: :delete,
-                data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger", id: "butt" %>
-    </div>
+    <% if logged_in? && current_user == @discussion.user %>
+      <div class="discussion-actions">
+        <%= link_to "Edit this topic", edit_discussion_path(@discussion), class: "btn btn-xs btn-success", id: "butt" %>
+        <%= link_to "Delete this topic", discussion_path(@discussion), method: :delete,
+                  data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger", id: "butt" %>
+      </div>
+    <% end %>
 </div>

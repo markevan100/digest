@@ -37,13 +37,13 @@
           <%= f.text_area :question, rows: 10, class: 'form-control', placeholder: 'Body of discussion' %>
         </div>
       </div>
-
+      <% current_user == discussion.user %>
       <div class="form-group">
         <div class="col-md-offset-1 col-md-11">
           <%= f.submit class: 'btn btn-primary btn-lg pull-right' %>
         </div>
       </div>
-    
+
     <% end %>
   </div>
 </div>

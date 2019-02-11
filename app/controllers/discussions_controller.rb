@@ -1,5 +1,7 @@
 class DiscussionsController < ApplicationController
   before_action :set_discussion, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /discussions
   # GET /discussions.json
@@ -25,7 +27,7 @@ class DiscussionsController < ApplicationController
   # POST /discussions.json
   def create
     @discussion = Discussion.new(discussion_params)
-
+    @discussion.user = current_user
     respond_to do |format|
       if @discussion.save
         format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
@@ -71,4 +73,12 @@ class DiscussionsController < ApplicationController
     def discussion_params
       params.require(:discussion).permit(:title, :question, :user_id)
     end
+
+    def require_same_user
+      if current_user != @discussion.user
+        flash[:danger] = "You can only edit or delete your own articles"
+        redirect_to root_path
+      end
+    end
+
 end
