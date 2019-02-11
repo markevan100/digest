@@ -17,5 +17,7 @@
   <%= @user.username %>'s discussions:</h4>
   <%= render 'discussions/discussion', obj: @user.discussions %>
 </div>
+<div align="center">
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', signup_path %>
+</div>
