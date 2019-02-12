@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#new'
 
+  resources :categories, except: [:destroy]
   resources :recipes
   resources :responses
   resources :discussions
