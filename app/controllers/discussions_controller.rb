@@ -26,8 +26,11 @@ class DiscussionsController < ApplicationController
   # POST /discussions
   # POST /discussions.json
   def create
-    @discussion = Discussion.new(discussion_params)
-    @discussion.user = current_user
+    binding.pry
+    @discussion = Discussion.new(title: discussion_params[:title],
+                                question: discussion_params[:question],
+                                category_ids: discussion_params[:category_ids],
+                                user_id: current_user.id)
     respond_to do |format|
       if @discussion.save
         format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
@@ -71,7 +74,7 @@ class DiscussionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def discussion_params
-      params.require(:discussion).permit(:title, :question, :user_id)
+      params.require(:discussion).permit(:title, :question, category_ids: [])
     end
 
     def require_same_user

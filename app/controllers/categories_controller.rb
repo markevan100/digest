@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
+    binding.pry
     @category = Category.new(name: category_params[:name], user: current_user)
     if @category.save
       flash[:success] = "Category was created successfully"
