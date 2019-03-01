@@ -65,6 +65,9 @@ group :development do
 end
 
 group :test do
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
+  gem "minitest-matchers_vaccine"
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
