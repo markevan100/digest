@@ -26,11 +26,11 @@ class DiscussionsController < ApplicationController
   # POST /discussions
   # POST /discussions.json
   def create
-    binding.pry
     @discussion = Discussion.new(title: discussion_params[:title],
                                 question: discussion_params[:question],
                                 category_ids: discussion_params[:category_ids],
                                 user_id: current_user.id)
+                                
     respond_to do |format|
       if @discussion.save
         format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
