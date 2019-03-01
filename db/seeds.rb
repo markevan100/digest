@@ -9,6 +9,7 @@
 User.delete_all
 Category.delete_all
 Discussion.delete_all
+DiscussionCategory.delete_all
 admin = User.create(username: "via seedfile", email: "josh@josh.com", password: "password", admin: true)
 cat1 = Category.create(name: "cat 1", user: admin)
 cat2 = Category.create(name: "cat 2", user: admin)
