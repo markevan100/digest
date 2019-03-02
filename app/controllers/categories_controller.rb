@@ -10,8 +10,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
-
-  end
+    @category = Category.find(params[:id])
+    @category_discussion = @category.discussions
+    end
 
   def create
     @category = Category.new(name: category_params[:name], user: current_user)
