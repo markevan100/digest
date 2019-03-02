@@ -19,7 +19,16 @@ $navbar-default-bg: #E6E6FA;
 }
 
 #butt {
-  background: #bfbfbf;
+  border: yellow ;
+  background-color: #89cff0 !important;
+  color: black;
+  text-decoration: underline;
+}
+
+#butt:hover{
+  border: blue ;
+  color: #000000;
+  text-decoration: none;
 }
 
 .footer {
@@ -49,11 +58,18 @@ footer ul li {
 }
 
 .badge {
-  background-color: #FFB6C1;
+  background-color: #FFB6C1 !important;
   text-decoration-color: #FFB6C1;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
+}
+
+#hov:hover{
+  
+  border: blue ;
+  color: #000000;
+  text-decoration: none;
 }
 
 .input_checkbox input {
