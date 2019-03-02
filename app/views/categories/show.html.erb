@@ -1,3 +1,8 @@
 <h1 align="center"><%= "Category: " + @category.name %></h1>
-
+<% if logged_in? and current_user.admin? %>
+  <div class="row" align="center">
+    <span class="badge"><%= link_to "Edit", edit_category_path(@category), id: "hov" %></span>
+  </div>
+<% end %>
+<p>&nbsp;</p>
 <%= render 'discussions/discussion', obj: @category_discussion %>
