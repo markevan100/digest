@@ -13,7 +13,9 @@
   <h4 class="center"><strong>Question:</strong></h4>
     <hr>
     <%= simple_format(@discussion.question) %>
-    <!-- <p id="notice"><%= notice %></p> -->
+    <% if @discussion.categories.any? %>
+      <p>Categories: <%= render @discussion.categories %></p>
+    <% end %>
     <% if logged_in? && (current_user == @discussion.user || current_user.admin?) %>
       <div class="discussion-actions">
         <%= link_to "Edit this topic", edit_discussion_path(@discussion), class: "btn btn-xs btn-success", id: "butt" %>
