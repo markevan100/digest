@@ -1,9 +1,8 @@
 
 
     <% obj.each do |discussion| %>
-      <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
-          <div class="well well-lg">
+
+          <div class="well well-lg each_box">
             <div class="discussion-title">
               <%= link_to discussion.title, discussion_path(discussion) %>
             </div>
@@ -23,6 +22,5 @@
 
             <%= discussion.user.username %>
           </div>
-        </div>
-      </div>
+    
     <% end %>

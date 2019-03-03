@@ -3,6 +3,11 @@ $navbar-default-bg: #E6E6FA;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body#home-body {
+  background-image: url(girl.jpeg);
+  background-size: cover;
+}
+
 #logo {
   float: left;
   font-size: 1.7em;
@@ -29,6 +34,16 @@ $navbar-default-bg: #E6E6FA;
   border: blue ;
   color: #000000;
   text-decoration: none;
+}
+
+.discussion_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.each_box {
+  width: 31%;
 }
 
 .footer {
@@ -66,7 +81,7 @@ footer ul li {
 }
 
 #hov:hover{
-  
+
   border: blue ;
   color: #000000;
   text-decoration: none;
